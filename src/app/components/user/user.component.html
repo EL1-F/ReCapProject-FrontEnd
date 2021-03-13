@@ -1,0 +1,22 @@
+
+ <div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
+    <span class="visually-hidden"></span>
+ </div>
+ <h2  class="fw-bold bg-dark text-white border border-info">Kullanıcılar</h2>
+ <table *ngIf="dataLoaded==true" class="table table-striped">
+    
+    <thead>
+        <tr>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>Email</th>
+        </tr>   
+    </thead>
+
+    <tr *ngFor="let user of users" >
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+    </tr>
+ </table>
+
