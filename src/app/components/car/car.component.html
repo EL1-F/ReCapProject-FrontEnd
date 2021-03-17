@@ -2,23 +2,30 @@
     <span class="visually-hidden"></span>
 </div>
 <h2  class="fw-bold bg-dark text-white border border-info">Arabalar</h2>
-<table *ngIf="dataLoaded==true" class="table">
-    <thead>
+
+<ul *ngIf="dataLoaded==true" class="list-group">
+    <li (click)="setCurrentCar(car)" 
+    routerLink = "/car-image-dto/{{car.carId}}"
+    *ngFor="let car of cars" 
+    [class]="getCurrentCarClass(car)">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marka</th>
+                <th>Renk</th>
+                <th>Model Yılı</th>
+                <th>Fiyat</th>
+            </tr>
+        </thead>
         <tr>
-            <th>Id</th>
-            <th>Marka</th>
-            <th>Renk</th>
-            <th>Model Yılı</th>
-            <th>Fiyat</th>
-            <th>Açıklama</th>
+            <td>{{car.carId}}</td>
+            <td>{{car.brandName}}</td>
+            <td>{{car.colorName}}</td>
+            <td>{{car.modelYear}}</td>
+            <td>{{car.dailyPrice}} TL</td>
         </tr>
-    </thead>
-    <tr *ngFor="let car of cars" >
-        <td>{{car.carId}}</td>
-        <td>{{car.brandName}}</td>
-        <td>{{car.colorName}}</td>
-        <td>{{car.modelYear}}</td>
-        <td>{{car.dailyPrice}}</td>
-        <td>{{car.descriptions}}</td>
-    </tr>
-</table>
+    </table>
+    </li>
+</ul>
+

@@ -1,0 +1,35 @@
+<div class="row image-section">
+    <div *ngFor="let image of images" class="col-md-4 img-gallery">
+      <img
+        src="{{ path }}/{{image.imagePath }}"
+        class="img-fluid"
+        alt="..."
+      />
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Marka</th>
+            <th>Model</th>
+            <th>Renk</th>
+            <th>Günlük Ücret</th>
+            <th>Açıklama</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dto of cars">
+            <td>{{dto.brandName}}</td>
+            <td>{{dto.modelYear}}</td>
+            <td>{{dto.colorName}}</td>
+            <td>{{dto.dailyPrice}} TL</td>
+            <td>{{dto.descriptions}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="btn-goback">
+    <button routerLink="/cars" type="button" class="btn btn-xs btn-success">
+      Go Back
+    </button>
+</div>
